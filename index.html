@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>PHP AJAX</title>
+  </head>
+  <body>
+ 
+
+    <div class="containe mt-4 p-2">
+      <div class="row ">
+        <div class="col-md-4 mx-auto">
+          <h1>Formulario registro</h1>
+            <!-- formulario -->
+            <form id="formulario">
+              <div class="form-group">
+                <label for="exampleInputEmail1">product</label>
+                <input type="text" class="form-control" id="product" placeholder="Enter product" name="product">
+                <small id="emailHelp" class="form-text text-muted">digite el producto .</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">price</label>
+                <input type="number" class="form-control" id="price" placeholder="price" name="price">
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputPassword1">cantidad</label>
+                  <input type="number" class="form-control" id="cantidad" placeholder="cantidad" name="cantidad">
+                </div>
+              <button type="submit" class="btn btn-primary">send</button>
+            </form>
+            <!-- fin formulario -->
+
+            <div id="message">
+
+
+            </div>
+       </div>
+      </div>
+    </div>
+
+
+    <p id="parrafo"></p>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+    
+
+    <script>
+    
+   $(function(){
+
+
+      $('#formulario').submit(function(e){
+
+           e.preventDefault()
+
+           $.ajax({
+              url: 'backend.php',
+              method: 'post',
+              data: $(this).serialize()
+            }).done((info) => {
+
+           $('#message').html(info)
+          
+          })
+
+      })
+    
+
+
+
+   })
+           
+         
+       
+
+
+
+    
+    
+
+     
+
+        
+
+     
+
+       
+
+
+
+         
+    </script>
+ 
+  </body>
+</html>
